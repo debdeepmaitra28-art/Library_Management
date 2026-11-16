@@ -1,7 +1,7 @@
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
-private val api=System.getenv("AURELIA_API")?:"http://localhost:8080/api"
+private val api=System.getenv("PAGENEST_API")?:"http://localhost:8080/api"
 private fun call(path:String,method:String="GET",body:String?=null):String{
  val c=URL("$api$path").openConnection() as HttpURLConnection;c.requestMethod=method;c.connectTimeout=3000;c.readTimeout=5000
  if(body!=null){c.doOutput=true;c.setRequestProperty("Content-Type","application/x-www-form-urlencoded");c.outputStream.use{it.write(body.toByteArray())}}
@@ -9,7 +9,7 @@ private fun call(path:String,method:String="GET",body:String?=null):String{
  val result=stream.bufferedReader().use{it.readText()};if(c.responseCode>=400)error("API ${c.responseCode}: $result");c.disconnect();return result
 }
 private fun enc(s:String)=URLEncoder.encode(s,Charsets.UTF_8)
-fun main(){println("\n A U R E L I A / LIBRARIAN CONSOLE\n API: $api")
+fun main(){println("\n P A G E N E S T / LIBRARY CONSOLE\n API: $api")
  while(true){println("\n 1 Catalogue\n 2 Active loans\n 3 Issue book\n 4 Return loan\n 5 Request a book\n 0 Exit");print(" Select: ")
  when(readLine()?.trim()){
  "1"->runCatching{println(call("/books"))}.onFailure{println(it.message)}
