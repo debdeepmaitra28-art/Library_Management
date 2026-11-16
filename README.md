@@ -1,4 +1,4 @@
-# AURELIA — Library & Reading Management System
+# PageNest — Library & Reading Management System
 
 A student-first library interface with a curated catalogue, search and category filters, book details, borrowing and returns, due-date tracking, reading history, book requests and a librarian overview.
 
@@ -24,10 +24,10 @@ The API listens on port 8080 by default; set `PORT` to change it.
 Requires Kotlin/JVM. Start the Java API first.
 ```sh
 cd clients/kotlin
-kotlinc src/main/kotlin/AureliaCli.kt -include-runtime -d aurelia-cli.jar
-java -jar aurelia-cli.jar
+kotlinc src/main/kotlin/AureliaCli.kt -include-runtime -d pagenest-cli.jar
+java -jar pagenest-cli.jar
 ```
-Set `AURELIA_API` to change the API root.
+Set `PAGENEST_API` to change the API root. The legacy `AURELIA_API` variable is still accepted for existing setups.
 
 ## Data boundaries
 The browser demo uses localStorage and seeded data. The Java service uses in-memory data and resets when the process restarts. The browser and API do not share state. There is no persistent database, institutional login, or production authorization. Add those before handling real library records.
