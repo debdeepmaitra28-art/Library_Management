@@ -6,7 +6,7 @@ The repository-root static client is GitHub Pages-ready and has no build step. I
 Compile from backend/java:
 `javac -d out src/aurelia/LibraryServer.java`
 Run:
-`java -cp out aurelia.LibraryServer`
+`java -cp out pagenest.LibraryServer`
 Set PORT to change the default 8080 port.
 
 | Method | Route | Purpose |
@@ -22,7 +22,7 @@ Set PORT to change the default 8080 port.
 With the API running, compile from clients/kotlin:
 `kotlinc src/main/kotlin/AureliaCli.kt -include-runtime -d pagenest-cli.jar`
 `java -jar pagenest-cli.jar`
-Set PAGENEST_API to override the API root. AURELIA_API remains supported as a compatibility fallback. The CLI is a separate client of the Java service.
+Set PAGENEST_API to override the API root. PAGENEST_API remains supported as a compatibility fallback. The CLI is a separate client of the Java service.
 
 ## Boundaries and production work
 The Java service uses in-memory state and resets at restart. The static browser demo and Java API do not share state. There is no persistent database, institutional login, server-side student identity, authorization model, audit logging, backups, validation, tests, TLS or monitoring. Before real use, add those production safeguards.
