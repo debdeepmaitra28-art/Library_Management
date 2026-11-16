@@ -4,8 +4,8 @@ A student-first library interface with a curated catalogue, search and category 
 
 ## Project structure
 - `index.html`, `assets/css/styles.css`, `assets/js/app.js`: static browser application.
-- `backend/java/src/pagenest/LibraryServer.java`: dependency-free Java 17 REST API.
-- `clients/kotlin/src/main/kotlin/PageNestCli.kt`: Kotlin/JVM API client.
+- `backend/java/src/aurelia/LibraryServer.java`: dependency-free Java 17 REST API.
+- `clients/kotlin/src/main/kotlin/AureliaCli.kt`: Kotlin/JVM API client.
 - `docs/ARCHITECTURE.md`: routes, boundaries and production notes.
 
 ## Browser demo
@@ -27,7 +27,7 @@ cd clients/kotlin
 kotlinc src/main/kotlin/PageNestCli.kt -include-runtime -d pagenest-cli.jar
 java -jar pagenest-cli.jar
 ```
-Set `PAGENEST_API` to change the API root. The legacy `PAGENEST_API` variable is still accepted for existing setups.
+Set `PAGENEST_API` to change the API root. The `PAGENEST_API` environment variable overrides the API root.
 
 ## Data boundaries
 The browser demo uses localStorage and seeded data. The Java service uses in-memory data and resets when the process restarts. The browser and API do not share state. There is no persistent database, institutional login, or production authorization. Add those before handling real library records.
